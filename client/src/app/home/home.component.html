@@ -1,0 +1,44 @@
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+        <li>
+            <a>
+                <h3>Survey Polls</h3>
+            </a>
+
+        </li>
+        <li>
+            <a [routerLink]="['/poll']">
+                <h3>New Poll</h3>
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <h3>Log Out</h3>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class='container'>
+
+    <br>
+    <br>
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name:</th>
+                <th>Survey Questions:</th>
+                <th>Date Posted:</th>
+                <th>Action:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let poll of polls'>
+                <td>{{poll._user.name}}</td>
+                <td><a (click)='thisPoll(poll._id)'>{{poll.question}}</a></td>
+                <td>{{poll.createdAt}}</td>
+                <td *ngIf='poll._user.name==session_user.user.name'><a (click)='pollDelete(poll._id)'>Delete</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

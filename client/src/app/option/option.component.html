@@ -1,0 +1,44 @@
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+        <li>
+            <a>
+                <h3>Survey Polls</h3>
+            </a>
+
+        </li>
+        <li>
+            <a [routerLink]="['/home']">
+                <h3>Go to Polls</h3>
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <h3>Log Out</h3>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class='container'>
+    <h3>Question:</h3>
+    <br>
+    <h3>{{options.question}}</h3>
+    <br>
+    <br>
+    <h5>You can vote for any option you want!</h5>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Option:</th>
+                <th>Current Count of Votes:</th>
+                <th>Action:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor='let option of options._options'>
+                <td>{{option.option}}</td>
+                <td>{{option.vote}}</td>
+                <td><a (click)='vote(option._id)'>Vote</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

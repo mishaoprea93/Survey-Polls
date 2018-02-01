@@ -1,0 +1,10 @@
+.container {
+    margin-top: 100px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 10%;
+}
+
+.jumbotron {
+    text-align: center;
+}

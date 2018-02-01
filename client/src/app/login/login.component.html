@@ -1,0 +1,33 @@
+<div class="jumbotron">
+    <h1 class="display-3">Survey Polls</h1>
+
+</div>
+<div class="container ">
+
+    <div>
+        <form (ngSubmit)="login()" #myForm="ngForm">
+            <div class="form-row align-items-center ">
+                <div class="col-sm-8 my-1 ">
+                    <input type="text " name="uname " class="form-control " required minlength="3 " pattern="[a-zA-Z][a-zA-Z]+" id="inlineFormInputName " [(ngModel)]="name " #uname="ngModel">
+                    <div *ngIf="uname.invalid && (uname.dirty || uname.touched) " class="alert alert-danger ">
+
+                        <div *ngIf="uname.errors.required ">
+                            Name is required.
+                        </div>
+                        <div *ngIf="uname.errors.minlength ">
+                            Name must be at least 3 characters long.
+                        </div>
+                        <div *ngIf="uname.errors.pattern ">
+                            Name should be letters only!
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-auto my-1 ">
+                    <button type="submit " class="btn btn-success " [disabled]="!myForm.form.valid">LogIn/Reg </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

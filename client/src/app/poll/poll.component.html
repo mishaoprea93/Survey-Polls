@@ -1,0 +1,95 @@
+<nav class="navbar navbar-inverse">
+    <ul class="nav navbar-nav">
+        <li>
+            <a>
+                <h3>Poll Survey</h3>
+            </a>
+
+        </li>
+        <li>
+            <a [routerLink]="['/home']">
+                <h3>Back</h3>
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <h3>Log Out</h3>
+            </a>
+        </li>
+    </ul>
+</nav>
+<div class="container">
+    <form (ngSubmit)='addpoll()' #myForm="ngForm">
+        <div class="form-group">
+            <label for="question">Question:</label>
+            <input name="question" type="text" class="form-control" id="email" required minlength="8" [(ngModel)]='poll.question' #question='ngModel'>
+            <div *ngIf="question.invalid && (question.dirty || question.touched)" class="alert alert-danger">
+
+                <div *ngIf="question.errors.required">
+                    Question is required.
+                </div>
+                <div *ngIf="question.errors.minlength">
+                    Question must be at least 8 characters long.
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="option1">Option1:</label>
+            <input name="option1" type="text" class="form-control" required minlength="3" [(ngModel)]='poll.option1' #option1='ngModel'>
+            <div *ngIf="option1.invalid && (option1.dirty || option1.touched)" class="alert alert-danger">
+
+                <div *ngIf="option1.errors.required">
+                    Option1 is required.
+                </div>
+                <div *ngIf="option1.errors.minlength">
+                    Option1 must be at least 3 characters long.
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="option2">Option2:</label>
+            <input name="option2" type="text" class="form-control" required minlength="3" [(ngModel)]='poll.option2' #option2='ngModel'>
+            <div *ngIf="option2.invalid && (option2.dirty || option2.touched)" class="alert alert-danger">
+
+                <div *ngIf="option2.errors.required">
+                    Option2 is required.
+                </div>
+                <div *ngIf="option2.errors.minlength">
+                    Option2 must be at least 3 characters long.
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="option3">Option3:</label>
+            <input name="option3" type="text" class="form-control" required minlength="3" [(ngModel)]='poll.option3' #option3='ngModel'>
+            <div *ngIf="option3.invalid && (option3.dirty || option3.touched)" class="alert alert-danger">
+
+                <div *ngIf="option3.errors.required">
+                    Option3 is required.
+                </div>
+                <div *ngIf="option3.errors.minlength">
+                    Option3 must be at least 3 characters long.
+                </div>
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="option4">Option4:</label>
+            <input name="option4" type="text" class="form-control" required minlength="3" [(ngModel)]='poll.option4' #option4='ngModel'>
+            <div *ngIf="option4.invalid && (option4.dirty || option4.touched)" class="alert alert-danger">
+
+                <div *ngIf="option4.errors.required">
+                    Option4 is required.
+                </div>
+                <div *ngIf="option4.errors.minlength">
+                    Option4 must be at least 3 characters long.
+                </div>
+
+            </div>
+        </div>
+        <button type="submit" class="btn btn-default" [disabled]="!myForm.form.valid">Create Poll</button>
+    </form>
+</div>
